@@ -16,14 +16,13 @@ public class HHTabBarView: UIView {
     static var shared = HHTabBarView.init()
     
     //For internal navigation
-    var referenceUITabBarController: UITabBarController
+    var referenceUITabBarController =  UITabBarController.init()
     
     //Detect Tab Changes
     public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
     
     //Init
     private override init(frame: CGRect) {
-        referenceUITabBarController = UITabBarController.init()
         super.init(frame: frame)
     }
     
@@ -72,14 +71,17 @@ public class HHTabBarView: UIView {
     
     //Helper to Select a Particular Tab.
     fileprivate func selectTabAtIndex(withIndex tabIndex: Int) {
+
         for hhTabButton in tabBarTabs {
-            hhTabButton.isSelected = false
-            hhTabButton.isUserInteractionEnabled = true
             if hhTabButton.tabIndex == tabIndex {
                 hhTabButton.isSelected = true
                 hhTabButton.isUserInteractionEnabled = false
+            } else {
+                hhTabButton.isSelected = false
+                hhTabButton.isUserInteractionEnabled = true
             }
         }
+        
         // Apply tab changes
         referenceUITabBarController.selectedIndex = tabIndex
     }
@@ -107,14 +109,15 @@ public class HHTabBarView: UIView {
             xPos = xPos + width
         }
         
-        self.selectTabAtIndex(withIndex: self.defaultIndex)
+        //By default index.
+        self.defaultIndex = 0
     }
     
     //Actions
     @objc fileprivate func actionTabTapped(tab: HHTabButton) {
         if onTabTapped != nil {
-            selectTabAtIndex(withIndex: tab.tabIndex)
-            onTabTapped(tab.tabIndex)
+            self.selectTabAtIndex(withIndex: tab.tabIndex)
+            self.onTabTapped(tab.tabIndex)
         }
     }
     

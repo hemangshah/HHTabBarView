@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let hhTabBarView = HHTabBarView.shared
     
     //Keeping reference of iOS default UITabBarController.
-    let referenceTabBarController = HHTabBarView.shared.referenceUITabBarController
+    let referenceUITabBarController = HHTabBarView.shared.referenceUITabBarController
     
     //2
     func setupReferenceUITabBarController() -> Void {
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController2: UINavigationController = UINavigationController.init(rootViewController: storyboard.instantiateViewController(withIdentifier: "SecondViewControllerID"))
         
         //Update referenced TabbarController with your viewcontrollers
-        referenceTabBarController.setViewControllers([navigationController1, navigationController2], animated: false)
+        referenceUITabBarController.setViewControllers([navigationController1, navigationController2], animated: false)
     }
     
     //3
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         t2.titleLabel?.font = tabFont
         t2.setBackgroundColor(color: defaultTabColor, forState: .normal)
         t2.setBackgroundColor(color: selectedTabColor, forState: .selected)
-        
+
         //Note: As tabs are subclassed of UIButton so you can modify it as much as possible.
         
         //Create Array of Custom Tabs
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Setup Application Window
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = self.referenceTabBarController
+        self.window?.rootViewController = self.referenceUITabBarController
         self.window?.makeKeyAndVisible()
         
         return true

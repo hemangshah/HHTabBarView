@@ -14,7 +14,6 @@
 		F1C7BB4F1F25EEBB00D91CAB /* HHTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7BB451F25EEBB00D91CAB /* HHTabButton.swift */; };
 		F1C7BB501F25EEBB00D91CAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7BB461F25EEBB00D91CAB /* AppDelegate.swift */; };
 		F1C7BB511F25EEBB00D91CAB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7BB471F25EEBB00D91CAB /* FirstViewController.swift */; };
-		F1C7BB521F25EEBB00D91CAB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1C7BB481F25EEBB00D91CAB /* Info.plist */; };
 		F1C7BB531F25EEBB00D91CAB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7BB491F25EEBB00D91CAB /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,7 +135,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1C7BB521F25EEBB00D91CAB /* Info.plist in Resources */,
 				F1C7BB4D1F25EEBB00D91CAB /* Main.storyboard in Resources */,
 				F1C7BB4B1F25EEBB00D91CAB /* Assets.xcassets in Resources */,
 				F1C7BB4C1F25EEBB00D91CAB /* LaunchScreen.storyboard in Resources */,
@@ -278,6 +276,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HHTabBarView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hemangshah.HHTabBarView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,6 +290,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HHTabBarView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hemangshah.HHTabBarView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -317,6 +317,7 @@
 				F1C7BB3B1F25EE7800D91CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
