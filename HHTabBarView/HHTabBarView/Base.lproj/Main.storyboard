@@ -4,9 +4,15 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Second View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -26,31 +32,48 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBN-Rj-lnl">
-                                <rect key="frame" x="112" y="381" width="150" height="34"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-Fm-BoZ">
+                                <rect key="frame" x="15" y="90" width="345" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Show or Hide HHTabBarView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFL-8l-qdm">
+                                        <rect key="frame" x="65" y="0.0" width="215" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbT-rf-M6l">
+                                        <rect key="frame" x="148" y="25.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="actionShowHideTabBar:" destination="BYZ-38-t0r" eventType="valueChanged" id="5E9-eW-aW7"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Show or Hide UINavigationBar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsJ-2W-tqm">
+                                        <rect key="frame" x="61.5" y="61.5" width="222.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCS-nL-7hT">
+                                        <rect key="frame" x="148" y="87" width="51" height="13"/>
+                                        <connections>
+                                            <action selector="actionShowHideNavigationBar:" destination="BYZ-38-t0r" eventType="valueChanged" id="2rx-ad-tQC"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="R0R-Ll-jpV"/>
-                                    <constraint firstAttribute="width" constant="150" id="XC6-ub-PKh"/>
+                                    <constraint firstAttribute="height" constant="100" id="FOH-kV-4lL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Hide HHTabBar"/>
-                                <connections>
-                                    <action selector="actionShowHideTabBar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAJ-O9-lwd"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BBN-Rj-lnl" firstAttribute="centerX" secondItem="AcE-w8-2Xa" secondAttribute="centerX" id="5mE-WQ-pvl"/>
-                            <constraint firstItem="BBN-Rj-lnl" firstAttribute="top" secondItem="AcE-w8-2Xa" secondAttribute="bottom" constant="30" id="YGf-my-6kY"/>
+                            <constraint firstItem="N3f-Fm-BoZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="0Dq-hk-lNF"/>
+                            <constraint firstAttribute="trailing" secondItem="N3f-Fm-BoZ" secondAttribute="trailing" constant="15" id="ABO-KJ-GRW"/>
                             <constraint firstItem="AcE-w8-2Xa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Z2Q-gZ-hC3"/>
+                            <constraint firstItem="N3f-Fm-BoZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="lxl-Jw-QB4"/>
                             <constraint firstItem="AcE-w8-2Xa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sil-rL-VZC"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="btnShowHideTabBar" destination="BBN-Rj-lnl" id="fBV-KS-GvD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
