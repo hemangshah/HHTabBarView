@@ -22,7 +22,7 @@ A lightweight customized tabbar view.
 
 ## Setup
 
-**Important**: Please note that `HHTabBarView` is currently not supports `UIStoryBoard` support. Means, you will have to create `HHTabBarView` programmatically. It is advised to setup `HHTabBarView` in `AppDelegate.swift` for your easyness. 📌
+**Important**: Please note that `HHTabBarView` is currently not supports `UIStoryBoard`. Means, you will have to create `HHTabBarView` programmatically. It is advised to setup `HHTabBarView` in `AppDelegate.swift` for your easyness.
 
 1.  Initialize and keeping reference of `HHTabBarView`. 📌
 ````
@@ -120,13 +120,13 @@ A lightweight customized tabbar view.
 🎁<b><i> [ New Features ] </i></b>🎁
 
 - [x] Make HHTabBarView Singleton
-- [ ] More Customization Options
+- [x] More Customization Options
 - [ ] Lock Tabs
 - [ ] Handling of Multiple Tabs (Case: More than 5 tabs)
 - [ ] Badge
 - [ ] Animations
 - [ ] UIStoryboard Support
-- [ ] CocoaPods support
+- [ ] CocoaPods Support
 
 <b>Have an idea for improvements of this class?
 Please open an [issue](https://github.com/hemangshah/HHTabBarView/issues/new).</b>
