@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Step by Step
     //1
     let tabbarController = UITabBarController.init()
-    let hhTabBarViewTag = 1234 //Define a unique tag for the HHTabBarView.
+    let hhTabBarViewTag = 12345 //Define a unique tag for the HHTabBarView.
     
     //2
     func setupUITabBarController() -> Void {
