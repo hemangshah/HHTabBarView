@@ -37,6 +37,28 @@ public class HHTabButton: UIButton {
         self.tabIndex = index
     }
     
+    required
+    convenience public init(tabImage: UIImage, index:Int) {
+        self.init(frame: CGRect.zero)
+        self.backgroundColor = UIColor.clear
+        self.setImage(tabImage, for: .normal)
+        self.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
+        self.setTitleColor(.black, for: .normal)
+        self.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin, .flexibleHeight]
+        self.tabIndex = index
+    }
+    
+    required
+    convenience public init(withTitle tabTitle:String, index:Int) {
+        self.init(frame: CGRect.zero)
+        self.backgroundColor = UIColor.clear
+        self.setTitle(tabTitle, for: .normal)
+        self.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
+        self.setTitleColor(.black, for: .normal)
+        self.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin, .flexibleHeight]
+        self.tabIndex = index
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }

@@ -28,14 +28,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Creating a storyboard reference
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         
+        //First and Second Tab ViewControllers will be taken from the UIStoryBoard
         //Creating navigation controller for navigation inside the first tab.
         let navigationController1: UINavigationController = UINavigationController.init(rootViewController: storyboard.instantiateViewController(withIdentifier: "FirstViewControllerID"))
         
         //Creating navigation controller for navigation inside the second tab.
         let navigationController2: UINavigationController = UINavigationController.init(rootViewController: storyboard.instantiateViewController(withIdentifier: "SecondViewControllerID"))
         
+        
+        //Third, Fourth and Fifth will be created runtime.
+        let sofaViewController = UIViewController.init()
+        sofaViewController.title = "Sofa"
+        sofaViewController.view.backgroundColor = .white
+        let sofaNavigationController: UINavigationController = UINavigationController.init(rootViewController: sofaViewController)
+        
+        let targetViewController = UIViewController.init()
+        targetViewController.title = "Target"
+        targetViewController.view.backgroundColor = .white
+        let targetNavigationController: UINavigationController = UINavigationController.init(rootViewController: targetViewController)
+        
+        let umbrellaViewController = UIViewController.init()
+        umbrellaViewController.title = "Umbrella"
+        umbrellaViewController.view.backgroundColor = .white
+        let umbrellaNavigationController: UINavigationController = UINavigationController.init(rootViewController: umbrellaViewController)
+        
         //Update referenced TabbarController with your viewcontrollers
-        referenceUITabBarController.setViewControllers([navigationController1, navigationController2], animated: false)
+        referenceUITabBarController.setViewControllers([navigationController1, navigationController2, sofaNavigationController, targetNavigationController, umbrellaNavigationController], animated: false)
     }
     
     //3
@@ -44,32 +62,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Default & Selected Background Color
         let defaultTabColor = UIColor.white
-        let selectedTabColor = UIColor.init(red: 234/255, green: 218/255, blue: 195/255, alpha: 1.0)
+        let selectedTabColor = UIColor.init(red: 28/255, green: 158/255, blue: 247/255, alpha: 1.0)
         let tabFont = UIFont.init(name: "Helvetica-Light", size: 14.0)
         
         //Create Custom Tabs
-        let t1 = HHTabButton.init(withTitle: "Calendar", tabImage: UIImage.init(named: "Calendar")!, index: 0)
+        let t1 = HHTabButton.init(tabImage: UIImage.init(named: "location-pin")!, index: 0)
         t1.titleLabel?.font = tabFont
         t1.setBackgroundColor(color: defaultTabColor, forState: .normal)
         t1.setBackgroundColor(color: selectedTabColor, forState: .selected)
         
-        let t2 = HHTabButton.init(withTitle: "Refresh", tabImage: UIImage.init(named: "Refresh")!, index: 1)
+        let t2 = HHTabButton.init(tabImage: UIImage.init(named: "refresh")!, index: 1)
         t2.titleLabel?.font = tabFont
         t2.setBackgroundColor(color: defaultTabColor, forState: .normal)
         t2.setBackgroundColor(color: selectedTabColor, forState: .selected)
-
+        
+        let t3 = HHTabButton.init(tabImage: UIImage.init(named: "sofa")!, index: 2)
+        t3.titleLabel?.font = tabFont
+        t3.setBackgroundColor(color: defaultTabColor, forState: .normal)
+        t3.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        
+        let t4 = HHTabButton.init(tabImage: UIImage.init(named: "target")!, index: 3)
+        t4.titleLabel?.font = tabFont
+        t4.setBackgroundColor(color: defaultTabColor, forState: .normal)
+        t4.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        
+        let t5 = HHTabButton.init(tabImage: UIImage.init(named: "umbrella")!, index: 4)
+        t5.titleLabel?.font = tabFont
+        t5.setBackgroundColor(color: defaultTabColor, forState: .normal)
+        t5.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        
         //Note: As tabs are subclassed of UIButton so you can modify it as much as possible.
         
         //Create Array of Custom Tabs
         var arrayTabs = Array<HHTabButton>()
         arrayTabs.append(t1)
         arrayTabs.append(t2)
+        arrayTabs.append(t3)
+        arrayTabs.append(t4)
+        arrayTabs.append(t5)
         
         //Set Default Index for HHTabBarView.
         hhTabBarView.tabBarTabs = arrayTabs
         
         //Handle Tab Change Event
-        hhTabBarView.defaultIndex = 1
+        hhTabBarView.defaultIndex = 0
         
         //Handle Tab Changes
         hhTabBarView.onTabTapped = { (tabIndex) in

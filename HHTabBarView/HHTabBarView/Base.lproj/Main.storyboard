@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Regular</string>
+        </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Light</string>
         </array>
@@ -26,42 +29,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refresh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcE-w8-2Xa">
-                                <rect key="frame" x="132.5" y="315" width="109" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-Fm-BoZ">
-                                <rect key="frame" x="15" y="90" width="345" height="100"/>
+                                <rect key="frame" x="15" y="90" width="345" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Show or Hide HHTabBarView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFL-8l-qdm">
-                                        <rect key="frame" x="65" y="0.0" width="215" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" text="HHTabBarView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFL-8l-qdm">
+                                        <rect key="frame" x="91.5" y="0.0" width="162.5" height="77"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Show or Hide HHTabBarView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhh-XO-odf">
+                                        <rect key="frame" x="65" y="82" width="215" height="20.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbT-rf-M6l">
-                                        <rect key="frame" x="148" y="25.5" width="51" height="31"/>
+                                        <rect key="frame" x="148" y="107.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="actionShowHideTabBar:" destination="BYZ-38-t0r" eventType="valueChanged" id="5E9-eW-aW7"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Show or Hide UINavigationBar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsJ-2W-tqm">
-                                        <rect key="frame" x="61.5" y="61.5" width="222.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" text="Show or Hide UINavigationBar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsJ-2W-tqm">
+                                        <rect key="frame" x="61.5" y="143.5" width="222.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCS-nL-7hT">
-                                        <rect key="frame" x="148" y="87" width="51" height="13"/>
+                                        <rect key="frame" x="148" y="169" width="51" height="31"/>
                                         <connections>
                                             <action selector="actionShowHideNavigationBar:" destination="BYZ-38-t0r" eventType="valueChanged" id="2rx-ad-tQC"/>
                                         </connections>
                                     </switch>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="FOH-kV-4lL"/>
+                                    <constraint firstAttribute="height" constant="200" id="FOH-kV-4lL"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -69,9 +72,7 @@
                         <constraints>
                             <constraint firstItem="N3f-Fm-BoZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="0Dq-hk-lNF"/>
                             <constraint firstAttribute="trailing" secondItem="N3f-Fm-BoZ" secondAttribute="trailing" constant="15" id="ABO-KJ-GRW"/>
-                            <constraint firstItem="AcE-w8-2Xa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Z2Q-gZ-hC3"/>
                             <constraint firstItem="N3f-Fm-BoZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="lxl-Jw-QB4"/>
-                            <constraint firstItem="AcE-w8-2Xa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sil-rL-VZC"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -90,19 +91,7 @@
                     <view key="view" contentMode="scaleToFill" id="UIG-05-IiY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpk-GQ-6Oc">
-                                <rect key="frame" x="124.5" y="315" width="127.5" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="kpk-GQ-6Oc" firstAttribute="centerY" secondItem="UIG-05-IiY" secondAttribute="centerY" id="Yds-vW-NRx"/>
-                            <constraint firstItem="kpk-GQ-6Oc" firstAttribute="centerX" secondItem="UIG-05-IiY" secondAttribute="centerX" id="hTw-us-SGE"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ved-Vq-xUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
