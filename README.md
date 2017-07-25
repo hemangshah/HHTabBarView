@@ -111,7 +111,7 @@ A lightweight customized tabbar view.
 
 🎁<b><i> [ New Features ] </i></b>🎁
 
-- [ ] Make HHTabBarView Singleton
+- [x] Make HHTabBarView Singleton
 - [ ] More Customization Options
 - [ ] Lock Tabs
 - [ ] Handling of Multiple Tabs (Case: More than 5 tabs)
