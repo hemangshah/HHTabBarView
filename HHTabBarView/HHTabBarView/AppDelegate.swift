@@ -14,61 +14,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     /////Start ------ Setup HHTabBarView ------
-    //Step by Step
+    
     //1
-    let tabbarController = UITabBarController.init()
-    let hhTabBarViewTag = 12345 //Define a unique tag for the HHTabBarView.
+    //Initialize and keeping reference of HHTabBarView.
+    let hhTabBarView = HHTabBarView.shared
+    
+    //Keeping reference of iOS default UITabBarController.
+    let referenceTabBarController = HHTabBarView.shared.referenceUITabBarController
     
     //2
-    func setupUITabBarController() -> Void {
+    func setupReferenceUITabBarController() -> Void {
         
+        //Creating a storyboard reference
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        
+        //Creating navigation controller for navigation inside the first tab.
         let navigationController1: UINavigationController = UINavigationController.init(rootViewController: storyboard.instantiateViewController(withIdentifier: "FirstViewControllerID"))
-        navigationController1.title = "VC1" //This is for tabbar, will not show in UI
         
+        //Creating navigation controller for navigation inside the second tab.
         let navigationController2: UINavigationController = UINavigationController.init(rootViewController: storyboard.instantiateViewController(withIdentifier: "SecondViewControllerID"))
-        navigationController2.title = "VC2"  //This is for tabbar, will not show in UI
         
-        tabbarController.setViewControllers([navigationController1, navigationController2], animated: true)
+        //Update referenced TabbarController with your viewcontrollers
+        referenceTabBarController.setViewControllers([navigationController1, navigationController2], animated: false)
     }
     
     //3
-    func setupCustomHHTabBarView() -> Void {
-        //Step 1: Setup iOS default UITabBarController for Navigations and ViewControllers.
-        setupUITabBarController()
-        
-        //Step 2: Setup HHTabBarView
-        let hhTabbarView = HHTabBarView.init(withReferenceUITabBarController: tabbarController)
-        hhTabbarView.tag = hhTabBarViewTag
+    //Update HHTabBarView reference with the tabs requires.
+    func setupHHTabBarView() -> Void {
         
         //Default & Selected Background Color
         let defaultTabColor = UIColor.white
         let selectedTabColor = UIColor.init(red: 234/255, green: 218/255, blue: 195/255, alpha: 1.0)
+        let tabFont = UIFont.init(name: "Helvetica-Light", size: 14.0)
         
         //Create Custom Tabs
         let t1 = HHTabButton.init(withTitle: "Calendar", tabImage: UIImage.init(named: "Calendar")!, index: 0)
-        t1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
+        t1.titleLabel?.font = tabFont
         t1.setBackgroundColor(color: defaultTabColor, forState: .normal)
         t1.setBackgroundColor(color: selectedTabColor, forState: .selected)
         
         let t2 = HHTabButton.init(withTitle: "Refresh", tabImage: UIImage.init(named: "Refresh")!, index: 1)
-        t2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
+        t2.titleLabel?.font = tabFont
         t2.setBackgroundColor(color: defaultTabColor, forState: .normal)
         t2.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        
+        //Note: As tabs are subclassed of UIButton so you can modify it as much as possible.
         
         //Create Array of Custom Tabs
         var arrayTabs = Array<HHTabButton>()
         arrayTabs.append(t1)
         arrayTabs.append(t2)
         
-        //Set Custom Tabs
-        hhTabbarView.tabBarTabs = arrayTabs
+        //Set Default Index for HHTabBarView.
+        hhTabBarView.tabBarTabs = arrayTabs
         
-        //Set Default Index for a Tab.
-        hhTabbarView.defaultIndex = 1
+        //Handle Tab Change Event
+        hhTabBarView.defaultIndex = 1
         
         //Handle Tab Changes
-        hhTabbarView.onTabTapped = { (tabIndex) in
+        hhTabBarView.onTabTapped = { (tabIndex) in
             print("Selected Tab Index:\(tabIndex)")
         }
     }
@@ -78,32 +82,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //4.1
         //Setup HHTabBarView
-        setupCustomHHTabBarView()
+        setupReferenceUITabBarController()
+        setupHHTabBarView()
         
-        //4.2
         //Setup Application Window
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = self.tabbarController
+        self.window?.rootViewController = self.referenceTabBarController
         self.window?.makeKeyAndVisible()
         
         return true
     }
     
     //5
+    //MARK: Show/Hide HHTabBarView
     func hideTabBar() -> Void {
-        //You can add animations for hide/show
-        let hhTabBar = self.tabbarController.view.viewWithTag(hhTabBarViewTag)!
-        hhTabBar.isHidden = true
-        self.tabbarController.tabBar.isHidden = true
+        hhTabBarView.isHidden = true
     }
     
     func showTabBar() -> Void {
-        //You can add animations for hide/show
-        let hhTabBar = self.tabbarController.view.viewWithTag(hhTabBarViewTag)!
-        hhTabBar.isHidden = false
-        self.tabbarController.tabBar.isHidden = false
+        hhTabBarView.isHidden = false
     }
 
     /////End ------ SETUP HHTabBarView ------

@@ -12,14 +12,18 @@ fileprivate let HHTabBarViewHeight = CGFloat(49.0)
 
 public class HHTabBarView: UIView {
     
+    //Singleton
+    static var shared = HHTabBarView.init()
+    
     //For internal navigation
-    fileprivate var referenceUITabBarController: UITabBarController?
+    var referenceUITabBarController: UITabBarController
     
     //Detect Tab Changes
     public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
     
     //Init
     private override init(frame: CGRect) {
+        referenceUITabBarController = UITabBarController.init()
         super.init(frame: frame)
     }
     
@@ -29,12 +33,11 @@ public class HHTabBarView: UIView {
     }
     
     required
-    convenience public init(withReferenceUITabBarController tabBarController: UITabBarController) {
+    convenience public init() {
         self.init(frame: CGRect.init(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: HHTabBarViewHeight))
-        self.referenceUITabBarController = tabBarController
         self.backgroundColor = .clear
         self.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
-        tabBarController.view.addSubview(self)
+        referenceUITabBarController.view.addSubview(self)
     }
     
     //HHTabBarViewFrame Frame
@@ -62,6 +65,11 @@ public class HHTabBarView: UIView {
         }
     }
     
+    //UI Updates
+    public override func layoutSubviews() {
+        self.frame = HHTabBarViewFrame()
+    }
+    
     //Helper to Select a Particular Tab.
     fileprivate func selectTabAtIndex(withIndex tabIndex: Int) {
         for hhTabButton in tabBarTabs {
@@ -73,21 +81,14 @@ public class HHTabBarView: UIView {
             }
         }
         // Apply tab changes
-        if let tabBarController = referenceUITabBarController {
-            tabBarController.selectedIndex = tabIndex
-        }
+        referenceUITabBarController.selectedIndex = tabIndex
     }
     
     fileprivate func isTabsCreated() -> Bool {
-        if tabBarTabs.isEmpty {
+        if !tabBarTabs.isEmpty {
             return true
         }
         return false
-    }
-    
-    //UI Updates
-    public override func layoutSubviews() {
-        self.frame = HHTabBarViewFrame()
     }
     
     //Create Tab UI
@@ -114,6 +115,12 @@ public class HHTabBarView: UIView {
         if onTabTapped != nil {
             selectTabAtIndex(withIndex: tab.tabIndex)
             onTabTapped(tab.tabIndex)
+        }
+    }
+    
+    override public var isHidden: Bool {
+        willSet {
+            self.referenceUITabBarController.tabBar.isHidden = !isHidden
         }
     }
 }
