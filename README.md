@@ -8,6 +8,14 @@ A lightweight customized tabbar view.
 ![MadeWithLove](https://img.shields.io/badge/Made%20with%20%E2%9D%A4-India-green.svg)
 [![Blog](https://img.shields.io/badge/Blog-iKiwiTech.com-blue.svg)](http://www.ikiwitech.com)
 
+<table>
+<tr>
+<td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/1.png" alt = "Icons Only"></td>
+<td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/2.png" alt = "Titles Only"></td>
+<td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/3.png" alt = "Icon with Title"></td>
+</tr>
+</table>
+
 ## Installation
 
 1.**Manually** - Add `HHTabBarView.swift` and `HHTabButton.swift` files to your Project. 
