@@ -12,29 +12,47 @@ fileprivate let HHTabBarViewHeight = CGFloat(49.0)
 
 public class HHTabBarView: UIView {
     
-    //Singleton
+    ///Singleton
     static var shared = HHTabBarView.init()
     
-    //For internal navigation
+    ///For Internal Navigation
     var referenceUITabBarController =  UITabBarController.init()
     
-    //Detect Tab Changes
-    public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
+    //Setter
+    ///Set HHTabButton for HHTabBarView.
+    public var tabBarTabs = Array<HHTabButton>() {
+        didSet {
+            createTabs()
+        }
+    }
+    
+    ///Set the default tab for HHTabBarView.
+    public var defaultIndex = 0 {
+        didSet {
+            if isTabsCreated() {
+                selectTabAtIndex(withIndex: defaultIndex)
+            }
+        }
+    }
     
     //Lock Index for Tabs
+    ///Specify indexes of tabs to lock. [0, 2, 3]
     public var lockTabIndexes = Array<Int>() {
         didSet {
             lockUnlockTabs()
         }
     }
     
-    //Badge
+    ///Update Badge Value for Specific Tab.
     public func updateBadge(forTabIndex index: Int, withValue value: Int) -> Void {
         if isTabsCreated() {
             let hhTabButton = tabBarTabs[index]
             hhTabButton.badgeValue = value
         }
     }
+    
+    ///Completion Handler for Tab Changes
+    public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
     
     //Init
     private override init(frame: CGRect) {
@@ -60,23 +78,6 @@ public class HHTabBarView: UIView {
         let screentHeight = screenSize.height
         let screentWidth = screenSize.width
         return CGRect.init(x: 0.0, y: (screentHeight - HHTabBarViewHeight), width: screentWidth, height: HHTabBarViewHeight)
-    }
-    
-    //Setter
-    ///Set HHTabButton for HHTabBarView.
-    var tabBarTabs = Array<HHTabButton>() {
-        didSet {
-            createTabs()
-        }
-    }
-    
-    ///Set the default tab for HHTabBarView.
-    var defaultIndex = 0 {
-        didSet {
-            if isTabsCreated() {
-                selectTabAtIndex(withIndex: defaultIndex)
-            }
-        }
     }
     
     //UI Updates
@@ -106,6 +107,7 @@ public class HHTabBarView: UIView {
         currentHHTabButton.isUserInteractionEnabled = false
     }
     
+    //Check if Tabs are created.
     fileprivate func isTabsCreated() -> Bool {
         if !tabBarTabs.isEmpty {
             return true
@@ -113,6 +115,7 @@ public class HHTabBarView: UIView {
         return false
     }
     
+    //Lock or Unlock Tabs if requires.
     fileprivate func lockUnlockTabs() -> Void {
         
         //Unlock All Tabs Before Locking.
@@ -158,6 +161,7 @@ public class HHTabBarView: UIView {
         }
     }
     
+    //Default Properties
     override public var isHidden: Bool {
         willSet {
             self.referenceUITabBarController.tabBar.isHidden = !isHidden

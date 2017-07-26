@@ -22,9 +22,11 @@ public extension UIButton {
 
 public class HHTabButton: UIButton {
     
+    ///Unique index of tabs. (Should be start with 0)
     public var tabIndex:Int = 0
     
-    public var badgeValue: Int = 0 {
+    ///To set badge value.
+    internal var badgeValue: Int = 0 {
         willSet {
             addBadgeView()
         } didSet {
@@ -32,23 +34,31 @@ public class HHTabButton: UIButton {
         }
     }
     
-    public var badgeLabel: HHTabLabel?
+    ///Configure badge Label. Should be configure only after setting tabs array to HHTabBarView.
+    public var badgeLabel: HHTabLabel? {
+        willSet {
+            guard badgeLabel != nil else {
+                print("Tabs are not set in HHTabBarView.")
+                return
+            }
+        }
+    }
     
-    //Init
-    required
-    convenience public init(withTitle tabTitle:String, tabImage: UIImage, index:Int) {
+    //MARK:Init
+    ///initialize HHTabButton. Useful if wants to show titles and images in tabs.
+    required convenience public init(withTitle tabTitle:String, tabImage: UIImage, index:Int) {
         self.init(frame: CGRect.zero)
         setupButton(withTitle: tabTitle, tabImage: tabImage, index: index)
     }
     
-    required
-    convenience public init(tabImage: UIImage, index:Int) {
+    ///initialize HHTabButton with tabImage. Useful if only wants to show images in tabs.
+    required convenience public init(tabImage: UIImage, index:Int) {
         self.init(frame: CGRect.zero)
         setupButton(withTitle: nil, tabImage: tabImage, index: index)
     }
     
-    required
-    convenience public init(withTitle tabTitle:String, index:Int) {
+    ///initialize HHTabButton with tabTitle. Useful if only wants to show titles in tabs.
+    required convenience public init(withTitle tabTitle:String, index:Int) {
         self.init(frame: CGRect.zero)
         setupButton(withTitle: tabTitle, tabImage: nil, index: index)
     }
