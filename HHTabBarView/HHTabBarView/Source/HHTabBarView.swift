@@ -21,6 +21,13 @@ public class HHTabBarView: UIView {
     //Detect Tab Changes
     public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
     
+    //Lock Index for Tabs
+    public var lockTabIndexes = Array<Int>() {
+        didSet {
+            lockUnlockTabs()
+        }
+    }
+    
     //Init
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,6 +91,8 @@ public class HHTabBarView: UIView {
         
         // Apply tab changes
         referenceUITabBarController.selectedIndex = tabIndex
+        
+        lockUnlockTabs()
     }
     
     fileprivate func isTabsCreated() -> Bool {
@@ -91,6 +100,22 @@ public class HHTabBarView: UIView {
             return true
         }
         return false
+    }
+    
+    fileprivate func lockUnlockTabs() -> Void {
+        
+        //Unlock All Tabs Before.
+        for hhTabButton in tabBarTabs {
+            hhTabButton.isUserInteractionEnabled = true
+        }
+        
+        //Then Lock.
+        if !lockTabIndexes.isEmpty {
+            for index in lockTabIndexes {
+                let hhTabButton = tabBarTabs [index]
+                hhTabButton.isUserInteractionEnabled = false
+            }
+        }
     }
     
     //Create Tab UI

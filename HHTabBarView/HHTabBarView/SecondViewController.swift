@@ -31,4 +31,16 @@ class SecondViewController: UIViewController {
     @IBAction func actionShowHideNavigationBar(_ sender: UISwitch) {
         self.navigationController?.isNavigationBarHidden = !sender.isOn
     }
+    
+    @IBAction func actionShowHideBadge(_ sender: UISwitch) {
+        
+    }
+    
+    @IBAction func actionLockUnlockLastTab(_ sender: UISwitch) {
+        if sender.isOn {
+            apd.hhTabBarView.lockTabIndexes = [4]
+        } else {
+            apd.hhTabBarView.lockTabIndexes = []
+        }
+    }
 }
