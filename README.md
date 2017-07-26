@@ -9,12 +9,13 @@ A lightweight customized tabbar view.
 [![Blog](https://img.shields.io/badge/Blog-iKiwiTech.com-blue.svg)](http://www.ikiwitech.com)
 
 1. [Screenshots](#screenshots)
-2. [Installation](#installation)
-3. [Setup](#setup)
-4. [ToDos](#todos)
-5. [Credits](#credits)
-6. [Thanks](#thank-you)
-7. [License](#license)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Setup](#setup)
+5. [ToDos](#todos)
+6. [Credits](#credits)
+7. [Thanks](#thank-you)
+8. [License](#license)
 
 ## Screenshots
 
@@ -25,6 +26,16 @@ A lightweight customized tabbar view.
 <td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/3.png" alt = "Icon with Title"></td>
 </tr>
 </table>
+
+## Features
+
+1. Easily Configurable and Setup. Create tabs with Title, or Image or both. 
+2. Dynamic Tabs Configurations.
+3. Detect Taps in a completion block.
+4. Show/Hide Badge Value in individual tabs. Easily Configure as per the needs.
+5. Lock/Unlock particular tabs.
+6. Easily show/hide UINavigationBar and HHTabBarView.
+7. Lightweight with zero dependancies.
 
 ## Installation
 
