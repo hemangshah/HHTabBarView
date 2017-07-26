@@ -121,10 +121,10 @@ A lightweight customized tabbar view.
 
 - [x] Make HHTabBarView Singleton
 - [x] More Customization Options
-- [ ] Lock Tabs
-- [ ] Handling of Multiple Tabs (Case: More than 5 tabs)
+- [x] Lock Tabs
 - [ ] Badge
 - [ ] Animations
+- [ ] Handling of Multiple Tabs (Case: More than 5 tabs)
 - [ ] UIStoryboard Support
 - [ ] CocoaPods Support
 
