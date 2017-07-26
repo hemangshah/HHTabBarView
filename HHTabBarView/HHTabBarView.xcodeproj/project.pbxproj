@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F19556761F2894DF00E891AB /* HHTabLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19556751F2894DF00E891AB /* HHTabLabel.swift */; };
 		F1C7BB4B1F25EEBB00D91CAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C7BB3D1F25EEBB00D91CAB /* Assets.xcassets */; };
 		F1C7BB4C1F25EEBB00D91CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C7BB3F1F25EEBB00D91CAB /* LaunchScreen.storyboard */; };
 		F1C7BB4D1F25EEBB00D91CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C7BB411F25EEBB00D91CAB /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F19556751F2894DF00E891AB /* HHTabLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHTabLabel.swift; sourceTree = "<group>"; };
 		F1C7BB3C1F25EEBB00D91CAB /* HHTabBarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTabBarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C7BB3D1F25EEBB00D91CAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HHTabBarView/Assets.xcassets; sourceTree = "<group>"; };
 		F1C7BB401F25EEBB00D91CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				F1C7BB441F25EEBB00D91CAB /* HHTabBarView.swift */,
 				F1C7BB451F25EEBB00D91CAB /* HHTabButton.swift */,
+				F19556751F2894DF00E891AB /* HHTabLabel.swift */,
 			);
 			name = Source;
 			path = HHTabBarView/Source;
@@ -150,6 +153,7 @@
 			files = (
 				F1C7BB501F25EEBB00D91CAB /* AppDelegate.swift in Sources */,
 				F1C7BB4E1F25EEBB00D91CAB /* HHTabBarView.swift in Sources */,
+				F19556761F2894DF00E891AB /* HHTabLabel.swift in Sources */,
 				F1C7BB4F1F25EEBB00D91CAB /* HHTabButton.swift in Sources */,
 				F1C7BB531F25EEBB00D91CAB /* SecondViewController.swift in Sources */,
 				F1C7BB511F25EEBB00D91CAB /* FirstViewController.swift in Sources */,

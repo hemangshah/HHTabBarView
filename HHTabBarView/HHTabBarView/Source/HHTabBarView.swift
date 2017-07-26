@@ -28,6 +28,14 @@ public class HHTabBarView: UIView {
         }
     }
     
+    //Badge
+    public func updateBadge(forTabIndex index: Int, withValue value: Int) -> Void {
+        if isTabsCreated() {
+            let hhTabButton = tabBarTabs[index]
+            hhTabButton.badgeValue = value
+        }
+    }
+    
     //Init
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,20 +87,23 @@ public class HHTabBarView: UIView {
     //Helper to Select a Particular Tab.
     fileprivate func selectTabAtIndex(withIndex tabIndex: Int) {
 
+        // Tab Selection/Deselection
         for hhTabButton in tabBarTabs {
             if hhTabButton.tabIndex == tabIndex {
                 hhTabButton.isSelected = true
-                hhTabButton.isUserInteractionEnabled = false
             } else {
                 hhTabButton.isSelected = false
-                hhTabButton.isUserInteractionEnabled = true
             }
         }
         
-        // Apply tab changes
+        // Apply Tab Changes in UITabBarController
         referenceUITabBarController.selectedIndex = tabIndex
         
+        // Lock or Unlock the Tabs if requires.
         lockUnlockTabs()
+        
+        let currentHHTabButton = tabBarTabs[tabIndex]
+        currentHHTabButton.isUserInteractionEnabled = false
     }
     
     fileprivate func isTabsCreated() -> Bool {
@@ -104,12 +115,12 @@ public class HHTabBarView: UIView {
     
     fileprivate func lockUnlockTabs() -> Void {
         
-        //Unlock All Tabs Before.
+        //Unlock All Tabs Before Locking.
         for hhTabButton in tabBarTabs {
             hhTabButton.isUserInteractionEnabled = true
         }
         
-        //Then Lock.
+        //Then Lock the provided Tab Indexes.
         if !lockTabIndexes.isEmpty {
             for index in lockTabIndexes {
                 let hhTabButton = tabBarTabs [index]
@@ -130,6 +141,7 @@ public class HHTabBarView: UIView {
         for hhTabButton in tabBarTabs {
             hhTabButton.frame = CGRect.init(x: xPos, y: yPos, width: width, height: height)
             hhTabButton.addTarget(self, action: #selector(actionTabTapped(tab:)), for: .touchUpInside)
+            hhTabButton.badgeValue = 0 //This will create HHTabLabel inside the HHTabButton
             self.addSubview(hhTabButton)
             xPos = xPos + width
         }

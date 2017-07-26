@@ -24,6 +24,16 @@ public class HHTabButton: UIButton {
     
     public var tabIndex:Int = 0
     
+    public var badgeValue: Int = 0 {
+        willSet {
+            addBadgeView()
+        } didSet {
+            updateBadgeView()
+        }
+    }
+    
+    public var badgeLabel: HHTabLabel?
+    
     //Init
     required
     convenience public init(withTitle tabTitle:String, tabImage: UIImage, index:Int) {
@@ -57,6 +67,38 @@ public class HHTabButton: UIButton {
         
         self.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin, .flexibleHeight]
         self.tabIndex = index
+    }
+    
+    fileprivate func addBadgeView() -> Void {
+        
+        //If badge label is already created, no need to recreate.
+        guard badgeLabel == nil else {
+            return
+        }
+        
+        let badgeSize: CGFloat = 20.0
+        let margin: CGFloat = 3.0
+        badgeLabel = HHTabLabel.init(frame: CGRect.init(x: self.frame.size.width - (badgeSize + margin), y: margin, width: badgeSize, height: badgeSize))
+        badgeLabel!.isHidden = true //By default.
+        self.addSubview(badgeLabel!)
+    }
+    
+    fileprivate func updateBadgeView() -> Void {
+        
+        if let label = badgeLabel {
+            
+            if badgeValue <= 0 {
+                label.isHidden = true
+                label.text = ""
+                badgeLabel!.isHidden = true
+            } else {
+                label.isHidden = false
+                label.text = String(badgeValue)
+                badgeLabel!.isHidden = false
+            }
+            
+        }
+        
     }
     
     public override init(frame: CGRect) {

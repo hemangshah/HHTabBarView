@@ -104,6 +104,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Set Default Index for HHTabBarView.
         hhTabBarView.tabBarTabs = arrayTabs
         
+        //You should modify badgeLabel after assigning tabs array.
+        //t1.badgeLabel?.backgroundColor = .white
+        //t1.badgeLabel?.textColor = selectedTabColor
+        //t1.badgeLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
+        
         //Handle Tab Change Event
         hhTabBarView.defaultIndex = 0
         

@@ -33,7 +33,18 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func actionShowHideBadge(_ sender: UISwitch) {
-        
+        if sender.isOn {
+            apd.hhTabBarView.updateBadge(forTabIndex: 0, withValue: Int(arc4random()%30) + 1)
+            apd.hhTabBarView.updateBadge(forTabIndex: 2, withValue: Int(arc4random()%30) + 1)
+            apd.hhTabBarView.updateBadge(forTabIndex: 3, withValue: Int(arc4random()%30) + 1)
+            apd.hhTabBarView.updateBadge(forTabIndex: 4, withValue: Int(arc4random()%30) + 1)
+        } else {
+            //Setting 0 will hide the Badge.
+            apd.hhTabBarView.updateBadge(forTabIndex: 0, withValue: 0)
+            apd.hhTabBarView.updateBadge(forTabIndex: 2, withValue: 0)
+            apd.hhTabBarView.updateBadge(forTabIndex: 3, withValue: 0)
+            apd.hhTabBarView.updateBadge(forTabIndex: 4, withValue: 0)
+        }
     }
     
     @IBAction func actionLockUnlockLastTab(_ sender: UISwitch) {
