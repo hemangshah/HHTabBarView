@@ -8,6 +8,16 @@ A lightweight customized tabbar view.
 ![MadeWithLove](https://img.shields.io/badge/Made%20with%20%E2%9D%A4-India-green.svg)
 [![Blog](https://img.shields.io/badge/Blog-iKiwiTech.com-blue.svg)](http://www.ikiwitech.com)
 
+1. [Screenshots](#screenshots)
+2. [Installation](#installation)
+3. [Setup](#setup)
+4. [ToDos](#todos)
+5. [Credits](#credits)
+6. [Thanks](#thank-you)
+7. [License](#license)
+
+## Screenshots
+
 <table>
 <tr>
 <td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/1.png" alt = "Icons Only"></td>
