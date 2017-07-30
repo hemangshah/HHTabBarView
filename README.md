@@ -39,7 +39,7 @@ A lightweight customized tabbar view.
 
 ## Installation
 
-1.**Manually** - Add `HHTabBarView.swift` and `HHTabButton.swift` files to your Project. 
+1.**Manually** - Add `HHTabBarView.swift`, `HHTabButton.swift` and `HHTabLabel.swift` files to your Project. 
 
 ## Setup
 
