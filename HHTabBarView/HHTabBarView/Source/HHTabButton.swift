@@ -37,14 +37,7 @@ public class HHTabButton: UIButton {
     }
     
     ///Configure badge Label. Should be configure only after setting tabs array to HHTabBarView.
-    public var badgeLabel: HHTabLabel? {
-        willSet {
-            guard badgeLabel != nil else {
-                print("Tabs are not set in HHTabBarView.")
-                return
-            }
-        }
-    }
+    public var badgeLabel: HHTabLabel?
     
     //MARK:Init
     ///initialize HHTabButton. Useful if wants to show titles and images in tabs.
