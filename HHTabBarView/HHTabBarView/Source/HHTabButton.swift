@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+///Set Background Color for various UIButton states.
 public extension UIButton {
    public func setBackgroundColor(color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
@@ -63,6 +65,7 @@ public class HHTabButton: UIButton {
         setupButton(withTitle: tabTitle, tabImage: nil, index: index)
     }
     
+    //A common method to setup HHTabButton from customized inits.
     fileprivate func setupButton(withTitle tabTitle: String?, tabImage: UIImage?, index: Int) {
         self.backgroundColor = UIColor.clear
         
@@ -79,6 +82,7 @@ public class HHTabButton: UIButton {
         self.tabIndex = index
     }
     
+    //This is to add BadgeView within the HHTabButton. See badgeValue var to understand the usage.
     fileprivate func addBadgeView() -> Void {
         
         //If badge label is already created, no need to recreate.
@@ -93,6 +97,7 @@ public class HHTabButton: UIButton {
         self.addSubview(badgeLabel!)
     }
     
+    //This is to update BadgeView within the HHTabButton. See badgeValue var to understand the usage.
     fileprivate func updateBadgeView() -> Void {
         
         if let label = badgeLabel {
@@ -111,6 +116,7 @@ public class HHTabButton: UIButton {
         
     }
     
+    //MARK: Init
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }

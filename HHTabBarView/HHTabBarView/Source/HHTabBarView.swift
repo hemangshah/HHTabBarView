@@ -29,7 +29,7 @@ public class HHTabBarView: UIView {
     ///Set the default tab for HHTabBarView.
     public var defaultIndex = 0 {
         didSet {
-            if isTabsCreated() {
+            if areTabsCreated() {
                 selectTabAtIndex(withIndex: defaultIndex)
             }
         }
@@ -45,7 +45,7 @@ public class HHTabBarView: UIView {
     
     ///Update Badge Value for Specific Tab.
     public func updateBadge(forTabIndex index: Int, withValue value: Int) -> Void {
-        if isTabsCreated() {
+        if areTabsCreated() {
             let hhTabButton = tabBarTabs[index]
             hhTabButton.badgeValue = value
         }
@@ -54,7 +54,7 @@ public class HHTabBarView: UIView {
     ///Completion Handler for Tab Changes
     public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
     
-    //Init
+    //MARK: Init
     private override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -90,6 +90,7 @@ public class HHTabBarView: UIView {
 
         // Tab Selection/Deselection
         for hhTabButton in tabBarTabs {
+            
             if hhTabButton.tabIndex == tabIndex {
                 hhTabButton.isSelected = true
             } else {
@@ -108,7 +109,7 @@ public class HHTabBarView: UIView {
     }
     
     //Check if Tabs are created.
-    fileprivate func isTabsCreated() -> Bool {
+    fileprivate func areTabsCreated() -> Bool {
         if !tabBarTabs.isEmpty {
             return true
         }
@@ -132,9 +133,9 @@ public class HHTabBarView: UIView {
         }
     }
     
-    //Create Tab UI
+    //Create Tabs UI
     fileprivate func createTabs() {
-        
+
         var xPos: CGFloat = 0.0
         let yPos: CGFloat = 0.0
         
@@ -161,7 +162,7 @@ public class HHTabBarView: UIView {
         }
     }
     
-    //Default Properties
+    //Overriding Default Properties
     override public var isHidden: Bool {
         willSet {
             self.referenceUITabBarController.tabBar.isHidden = !isHidden
