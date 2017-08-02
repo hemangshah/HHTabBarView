@@ -8,17 +8,26 @@
 
 import UIKit
 
-fileprivate let HHTabBarViewHeight = CGFloat(49.0)
+internal let HHTabBarViewHeight = CGFloat(49.0)
 
+///Animation Types for Tab Changes.
+public enum HHTabBarTabChangeAnimationType {
+    case flash, shake, pulsate, none
+}
+
+///Easily configured HHTabBarView class to replace the iOS default UITabBarController.
 public class HHTabBarView: UIView {
     
     ///Singleton
-    static var shared = HHTabBarView.init()
+    public static var shared = HHTabBarView.init()
     
     ///For Internal Navigation
-    var referenceUITabBarController =  UITabBarController.init()
+    public var referenceUITabBarController =  UITabBarController.init()
     
-    //Setter
+    //MARK: Setters
+    ///Animation Type
+    public var tabChangeAnimationType: HHTabBarTabChangeAnimationType = .none
+    
     ///Set HHTabButton for HHTabBarView.
     public var tabBarTabs = Array<HHTabButton>() {
         didSet {
@@ -67,9 +76,14 @@ public class HHTabBarView: UIView {
     required
     convenience public init() {
         self.init(frame: CGRect.init(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: HHTabBarViewHeight))
+        //You can configure it to any background color you want.
         self.backgroundColor = .clear
+        //For Portrait/Landscape.
         self.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        //Adding to UITabBarController's subview.
         referenceUITabBarController.view.addSubview(self)
+        //This is important otherwise tabBar will be visible if tabChangeAnimationType = .flash
+        referenceUITabBarController.tabBar.isHidden = true
     }
     
     //HHTabBarViewFrame Frame
@@ -157,8 +171,26 @@ public class HHTabBarView: UIView {
     //Actions
     @objc fileprivate func actionTabTapped(tab: HHTabButton) {
         if onTabTapped != nil {
+            animateTabBarButton(tabBarButton: tab)
             self.selectTabAtIndex(withIndex: tab.tabIndex)
             self.onTabTapped(tab.tabIndex)
+        }
+    }
+    
+    //Perform Animation on Tab Changes.
+    fileprivate func animateTabBarButton(tabBarButton: HHTabButton) {
+        switch tabChangeAnimationType {
+        case .flash:
+            tabBarButton.flash()
+            break
+        case .shake:
+            tabBarButton.shake()
+            break
+        case .pulsate:
+            tabBarButton.pulsate()
+            break
+        default:
+            break
         }
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+///This is to show badge inside the HHTabButton (i.e. HHTabBarView's tab). As it's subclassed of UILabel you can configure it as much as iOS supports.
 public class HHTabLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)

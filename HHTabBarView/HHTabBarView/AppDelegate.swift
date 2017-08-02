@@ -112,6 +112,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Handle Tab Change Event
         hhTabBarView.defaultIndex = 0
         
+        //Show Animation on Switching Tabs
+        hhTabBarView.tabChangeAnimationType = .none
+        
         //Handle Tab Changes
         hhTabBarView.onTabTapped = { (tabIndex) in
             print("Selected Tab Index:\(tabIndex)")
@@ -127,6 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupReferenceUITabBarController()
         setupHHTabBarView()
         
+        //This is important.
         //Setup Application Window
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.rootViewController = self.referenceUITabBarController
