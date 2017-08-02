@@ -107,6 +107,9 @@ A lightweight customized tabbar view.
         //Set Default Index for HHTabBarView.
         hhTabBarView.defaultIndex = 1
         
+        //Show Animation on Switching Tabs
+        hhTabBarView.tabChangeAnimationType = .none
+        
         //Handle Tab Change Event
         hhTabBarView.onTabTapped = { (tabIndex) in
             print("Selected Tab Index:\(tabIndex)")
@@ -144,8 +147,7 @@ A lightweight customized tabbar view.
 - [x] More Customization Options
 - [x] Lock Tabs
 - [x] Badge
-- [ ] Animations
-- [ ] Handling of Multiple Tabs (Case: More than 5 tabs)
+- [x] Animations
 - [ ] UIStoryboard Support
 - [ ] CocoaPods Support
 
