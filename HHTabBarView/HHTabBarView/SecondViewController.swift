@@ -54,4 +54,12 @@ class SecondViewController: UIViewController {
             apd.hhTabBarView.lockTabIndexes = []
         }
     }
+    
+    @IBAction func actionShowTabChangeAnimation(_ sender: UISwitch) {
+        if sender.isOn {
+            apd.hhTabBarView.tabChangeAnimationType = .shake
+        } else {
+            apd.hhTabBarView.tabChangeAnimationType = .none
+        }
+    }
 }
