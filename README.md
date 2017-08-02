@@ -144,8 +144,6 @@ A lightweight customized tabbar view.
 
 ## ToDo[s]
 
-🎁<b><i> [ New Features ] </i></b>🎁
-
 - [x] Make HHTabBarView Singleton
 - [x] More Customization Options
 - [x] Lock Tabs
@@ -153,6 +151,8 @@ A lightweight customized tabbar view.
 - [x] Animations
 - [ ] UIStoryboard Support
 - [ ] CocoaPods Support
+
+You can [watch](https://github.com/hemangshah/HHTabBarView/subscription) to <b>HHTabBarView</b> to see continuous updates. Stay tuned.
 
 <b>Have an idea for improvements of this class?
 Please open an [issue](https://github.com/hemangshah/HHTabBarView/issues/new).</b>
