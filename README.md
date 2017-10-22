@@ -23,11 +23,6 @@ A lightweight customized tabbar view.
 <tr>
 <td colspan="3" align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/HHTabBarFlow.gif" alt = "Usage"></td>
 </tr>
-<tr>
-<td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/1.png" alt = "Icons Only"></td>
-<td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/2.png" alt = "Titles Only"></td>
-<td><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/3.png" alt = "Icon with Title"></td>
-</tr>
 </table>
 
 ## Features
@@ -42,7 +37,13 @@ A lightweight customized tabbar view.
 
 ## Installation
 
-1.**Manually** - Add `HHTabBarView.swift`, `HHTabButton.swift` and `HHTabLabel.swift` files to your Project. 
+1. **Manually** - Add `HHTabBarView/Source` folder to your Project. And you're good to use `HHTabBarView`.
+
+2. **CocoaPods**:
+
+    `pod 'HHTabBarView'`
+    
+> You can read the [CHANGELOG](https://github.com/hemangshah/HHTabBarView/blob/master/CHANGELOG.md) file for a particular release.
 
 ## Setup
 
@@ -149,8 +150,8 @@ A lightweight customized tabbar view.
 - [x] Lock Tabs
 - [x] Badge
 - [x] Animations
+- [x] CocoaPods Support
 - [ ] UIStoryboard Support
-- [ ] CocoaPods Support
 
 You can [watch](https://github.com/hemangshah/HHTabBarView/subscription) to <b>HHTabBarView</b> to see continuous updates. Stay tuned.
 
