@@ -37,11 +37,9 @@ A lightweight customized tabbar view.
 
 ## Installation
 
-1. **Manually** - Add `HHTabBarView/Source` folder to your Project. And you're good to use `HHTabBarView`.
+1. **Manually** – Add `HHTabBarView/Source` folder to your Project. And you're good to use `HHTabBarView`.
 
-2. **CocoaPods**:
-
-    `pod 'HHTabBarView'`
+2. **CocoaPods**: – `pod 'HHTabBarView'`
     
 > You can read the [CHANGELOG](https://github.com/hemangshah/HHTabBarView/blob/master/CHANGELOG.md) file for a particular release.
 
