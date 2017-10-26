@@ -68,28 +68,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Create Custom Tabs
         let t1 = HHTabButton.init(tabImage: UIImage.init(named: "location-pin")!, index: 0)
         t1.titleLabel?.font = tabFont
-        t1.setBackgroundColor(color: defaultTabColor, forState: .normal)
-        t1.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        t1.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
+        t1.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
         let t2 = HHTabButton.init(tabImage: UIImage.init(named: "refresh")!, index: 1)
         t2.titleLabel?.font = tabFont
-        t2.setBackgroundColor(color: defaultTabColor, forState: .normal)
-        t2.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        t2.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
+        t2.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
         let t3 = HHTabButton.init(tabImage: UIImage.init(named: "sofa")!, index: 2)
         t3.titleLabel?.font = tabFont
-        t3.setBackgroundColor(color: defaultTabColor, forState: .normal)
-        t3.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        t3.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
+        t3.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
         let t4 = HHTabButton.init(tabImage: UIImage.init(named: "target")!, index: 3)
         t4.titleLabel?.font = tabFont
-        t4.setBackgroundColor(color: defaultTabColor, forState: .normal)
-        t4.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        t4.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
+        t4.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
         let t5 = HHTabButton.init(tabImage: UIImage.init(named: "umbrella")!, index: 4)
         t5.titleLabel?.font = tabFont
-        t5.setBackgroundColor(color: defaultTabColor, forState: .normal)
-        t5.setBackgroundColor(color: selectedTabColor, forState: .selected)
+        t5.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
+        t5.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
         //Note: As tabs are subclassed of UIButton so you can modify it as much as possible.
         
