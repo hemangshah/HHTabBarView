@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal let HHTabBarViewHeight = CGFloat(49.0)
+fileprivate let hhTabBarViewHeight = CGFloat(49.0)
 
 ///Animation Types for Tab Changes.
 public enum HHTabBarTabChangeAnimationType {
@@ -22,7 +22,7 @@ public class HHTabBarView: UIView {
     public static var shared = HHTabBarView.init()
     
     ///For Internal Navigation
-    public var referenceUITabBarController =  UITabBarController.init()
+    private(set) public var referenceUITabBarController =  UITabBarController.init()
     
     //MARK: Setters
     ///Animation Type
@@ -31,15 +31,15 @@ public class HHTabBarView: UIView {
     ///Set HHTabButton for HHTabBarView.
     public var tabBarTabs = Array<HHTabButton>() {
         didSet {
-            createTabs()
+            self.createTabs()
         }
     }
     
     ///Set the default tab for HHTabBarView.
     public var defaultIndex = 0 {
         didSet {
-            if areTabsCreated() {
-                selectTabAtIndex(withIndex: defaultIndex)
+            if self.areTabsCreated() {
+                self.selectTabAtIndex(withIndex: defaultIndex)
             }
         }
     }
@@ -48,13 +48,13 @@ public class HHTabBarView: UIView {
     ///Specify indexes of tabs to lock. [0, 2, 3]
     public var lockTabIndexes = Array<Int>() {
         didSet {
-            lockUnlockTabs()
+            self.lockUnlockTabs()
         }
     }
     
     ///Update Badge Value for Specific Tab.
     public func updateBadge(forTabIndex index: Int, withValue value: Int) -> Void {
-        if areTabsCreated() {
+        if self.areTabsCreated() {
             let hhTabButton = tabBarTabs[index]
             hhTabButton.badgeValue = value
         }
@@ -75,28 +75,36 @@ public class HHTabBarView: UIView {
     
     required
     convenience public init() {
-        self.init(frame: CGRect.init(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: HHTabBarViewHeight))
+        self.init(frame: CGRect.init(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: hhTabBarViewHeight))
         //You can configure it to any background color you want.
         self.backgroundColor = .clear
         //For Portrait/Landscape.
         self.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
         //Adding to UITabBarController's subview.
-        referenceUITabBarController.view.addSubview(self)
+        self.referenceUITabBarController.view.addSubview(self)
         //This is important otherwise tabBar will be visible if tabChangeAnimationType = .flash
-        referenceUITabBarController.tabBar.isHidden = true
+        self.referenceUITabBarController.tabBar.isHidden = true
     }
     
     //HHTabBarViewFrame Frame
-    fileprivate func HHTabBarViewFrame() -> CGRect {
+    fileprivate func getHHTabBarViewFrame() -> CGRect {
         let screenSize = UIScreen.main.bounds.size
         let screentHeight = screenSize.height
         let screentWidth = screenSize.width
-        return CGRect.init(x: 0.0, y: (screentHeight - HHTabBarViewHeight), width: screentWidth, height: HHTabBarViewHeight)
+        var tabBarHeight = hhTabBarViewHeight
+        
+        //To support UI for iPhone X
+        if #available(iOS 11.0, *) {
+            let bottomPadding = self.referenceUITabBarController.tabBar.safeAreaInsets.bottom
+            tabBarHeight += bottomPadding
+        }
+        
+        return CGRect.init(x: 0.0, y: (screentHeight - tabBarHeight), width: screentWidth, height: tabBarHeight)
     }
     
     //UI Updates
     public override func layoutSubviews() {
-        self.frame = HHTabBarViewFrame()
+        self.frame = getHHTabBarViewFrame()
     }
     
     //Helper to Select a Particular Tab.
@@ -113,10 +121,10 @@ public class HHTabBarView: UIView {
         }
         
         // Apply Tab Changes in UITabBarController
-        referenceUITabBarController.selectedIndex = tabIndex
+        self.referenceUITabBarController.selectedIndex = tabIndex
         
         // Lock or Unlock the Tabs if requires.
-        lockUnlockTabs()
+        self.lockUnlockTabs()
         
         let currentHHTabButton = tabBarTabs[tabIndex]
         currentHHTabButton.isUserInteractionEnabled = false
@@ -124,7 +132,7 @@ public class HHTabBarView: UIView {
     
     //Check if Tabs are created.
     fileprivate func areTabsCreated() -> Bool {
-        if !tabBarTabs.isEmpty {
+        if !self.tabBarTabs.isEmpty {
             return true
         }
         return false
@@ -139,8 +147,8 @@ public class HHTabBarView: UIView {
         }
         
         //Then Lock the provided Tab Indexes.
-        if !lockTabIndexes.isEmpty {
-            for index in lockTabIndexes {
+        if !self.lockTabIndexes.isEmpty {
+            for index in self.lockTabIndexes {
                 let hhTabButton = tabBarTabs [index]
                 hhTabButton.isUserInteractionEnabled = false
             }
@@ -155,7 +163,7 @@ public class HHTabBarView: UIView {
         
         let width = CGFloat(self.frame.size.width)/CGFloat(tabBarTabs.count)
         let height = self.frame.size.height
-        
+
         for hhTabButton in tabBarTabs {
             hhTabButton.frame = CGRect.init(x: xPos, y: yPos, width: width, height: height)
             hhTabButton.addTarget(self, action: #selector(actionTabTapped(tab:)), for: .touchUpInside)
@@ -170,8 +178,8 @@ public class HHTabBarView: UIView {
     
     //Actions
     @objc fileprivate func actionTabTapped(tab: HHTabButton) {
-        if onTabTapped != nil {
-            animateTabBarButton(tabBarButton: tab)
+        if self.onTabTapped != nil {
+            self.animateTabBarButton(tabBarButton: tab)
             self.selectTabAtIndex(withIndex: tab.tabIndex)
             self.onTabTapped(tab.tabIndex)
         }
@@ -179,7 +187,7 @@ public class HHTabBarView: UIView {
     
     //Perform Animation on Tab Changes.
     fileprivate func animateTabBarButton(tabBarButton: HHTabButton) {
-        switch tabChangeAnimationType {
+        switch self.tabChangeAnimationType {
         case .flash:
             tabBarButton.flash()
             break
