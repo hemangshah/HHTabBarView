@@ -88,11 +88,13 @@ A lightweight customized tabbar view.
         //Create Custom Tabs
         let t1 = HHTabButton.init(withTitle: "Calendar", tabImage: UIImage.init(named: "Calendar")!, index: 0)
         t1.titleLabel?.font = tabFont
+        t1.titleLabel?.textColor = UIColor.black
         t1.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
         t1.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
         let t2 = HHTabButton.init(withTitle: "Refresh", tabImage: UIImage.init(named: "Refresh")!, index: 1)
         t2.titleLabel?.font = tabFont
+        t2.titleLabel?.textColor = UIColor.black
         t2.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
         t2.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
         
