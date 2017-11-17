@@ -114,12 +114,13 @@ public class HHTabButton: UIButton {
         
         if let title = tabTitle {
             self.setTitle(title, for: .normal)
-            self.setTitleColor(.black, for: .normal)
         }
         
         if let image = tabImage {
             self.setImage(image, for: .normal)
         }
+        
+        self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 0)
         
         self.autoresizingMask = [.flexibleWidth, .flexibleLeftMargin, .flexibleRightMargin, .flexibleHeight]
         self.tabIndex = index
