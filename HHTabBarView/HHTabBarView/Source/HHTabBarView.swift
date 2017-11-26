@@ -108,7 +108,7 @@ public class HHTabBarView: UIView {
     }
     
     //Helper to Select a Particular Tab.
-    fileprivate func selectTabAtIndex(withIndex tabIndex: Int) {
+    public func selectTabAtIndex(withIndex tabIndex: Int) {
 
         // Tab Selection/Deselection
         for hhTabButton in tabBarTabs {
