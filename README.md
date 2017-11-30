@@ -49,17 +49,17 @@ A lightweight customized tabbar view.
 **Important**: Please note that `HHTabBarView` is currently not supports `UIStoryBoard`. Means, you will have to create `HHTabBarView` programmatically. It is advised to setup `HHTabBarView` in `AppDelegate.swift` for your easyness.
 
 1.  Initialize and keeping reference of `HHTabBarView`. 📌
-````
+````swift
     let hhTabBarView = HHTabBarView.shared
 ````
 
 2.  Keeping reference of iOS default `UITabBarController`. 📌
-````
+````swift
     let referenceTabBarController = HHTabBarView.shared.referenceUITabBarController
 ````
     
 3. Setup referenced `UITabBarController` 📌
-````
+````swift
     func setupReferenceUITabBarController() -> Void {
         
         //Creating a storyboard reference
@@ -77,7 +77,7 @@ A lightweight customized tabbar view.
 ````    
     
 4. Setup `HHTabBarView` 📌
-````
+````swift
     //Update HHTabBarView reference with the tabs requires.
     func setupHHTabBarView() -> Void {
         
@@ -123,7 +123,7 @@ A lightweight customized tabbar view.
 ````
 
 5. Setup `window` of your application inside the 📌
-````
+````swift
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
