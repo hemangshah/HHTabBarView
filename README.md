@@ -8,6 +8,7 @@ A lightweight customized tabbar view.
 ![CocoaPods](https://img.shields.io/cocoapods/dt/HHTabBarView.svg)
 ![MadeWithLove](https://img.shields.io/badge/Made%20with%20%E2%9D%A4-India-green.svg)
 [![Blog](https://img.shields.io/badge/Blog-iKiwiTech.com-blue.svg)](http://www.ikiwitech.com)
+[![Awesome-Swift](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/matteocrippa/awesome-swift/)
 
 1. [Screenshots](#screenshots)
 2. [Features](#features)
