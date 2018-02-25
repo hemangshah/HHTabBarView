@@ -22,7 +22,7 @@ public class HHTabBarView: UIView {
     public static var shared = HHTabBarView.init()
     
     ///For Internal Navigation
-    private(set) public var referenceUITabBarController =  UITabBarController.init()
+    private(set) public var referenceUITabBarController =  UITabBarController()
     
     //MARK: Setters
     ///Animation Type
@@ -53,7 +53,7 @@ public class HHTabBarView: UIView {
     }
     
     ///Update Badge Value for Specific Tab.
-    public func updateBadge(forTabIndex index: Int, withValue value: Int) -> Void {
+    public func updateBadge(forTabIndex index: Int, withValue value: Int) {
         if self.areTabsCreated() {
             let hhTabButton = tabBarTabs[index]
             hhTabButton.badgeValue = value
@@ -139,7 +139,7 @@ public class HHTabBarView: UIView {
     }
     
     //Lock or Unlock Tabs if requires.
-    fileprivate func lockUnlockTabs() -> Void {
+    fileprivate func lockUnlockTabs() {
         
         //Unlock All Tabs Before Locking.
         for hhTabButton in tabBarTabs {
