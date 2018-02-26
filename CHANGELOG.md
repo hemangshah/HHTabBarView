@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Latest release is available [here](https://github.com/hemangshah/HHTabBarView/releases/latest).
 
+## [1.2.0](https://github.com/hemangshah/HHTabBarView/releases/tag/1.1.2) - Feb 26, 2018
+- Huge code refactoring.
+- Swift 4.x support. Note: Revoked Swift 3.x support.
+- Customized position for title and image.
+
 ## [1.1.2](https://github.com/hemangshah/HHTabBarView/releases/tag/1.1.2) - Nov 26, 2017
 - Removed default black color for the HHTabButton title.
 - Allows selecting a particular tab programmatically.
