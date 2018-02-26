@@ -102,13 +102,8 @@ A lightweight customized tabbar view.
         
         //Note: As HHTabButton are subclassed of UIButton so you can modify it as much as possible.
         
-        //Create Array of Custom Tabs
-        var arrayTabs = Array<HHTabButton>()
-        arrayTabs.append(t1)
-        arrayTabs.append(t2)
-        
         //Set Custom Tabs
-        hhTabBarView.tabBarTabs = arrayTabs
+        hhTabBarView.tabBarTabs = [t1, t2]
         
         //Set Default Index for HHTabBarView.
         hhTabBarView.defaultIndex = 1
@@ -153,7 +148,6 @@ A lightweight customized tabbar view.
 - [x] Badge
 - [x] Animations
 - [x] CocoaPods Support
-- [ ] UIStoryboard Support
 
 You can [watch](https://github.com/hemangshah/HHTabBarView/subscription) to <b>HHTabBarView</b> to see continuous updates. Stay tuned.
 
