@@ -6,6 +6,11 @@
 //  Copyright © 2017 Hemang Shah. All rights reserved.
 //
 
+/*
+ Idea of custom positions of title and image.
+ Credits: https://gist.github.com/gbitaudeau/6540847de8f5ee9f2e0393a00d2cb11e
+*/
+
 import UIKit
 
 ///This is to show tabs inside the HHTabBarView. As it's subclassed of UIButton you can configure it as much as iOS supports.
