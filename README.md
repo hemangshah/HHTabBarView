@@ -148,6 +148,16 @@ A lightweight customized tabbar view.
 
 6. Done! ✅    
 
+## Note: If you'll handle the hidden state of the tab bar, you have to do this on viewWillAppear method, like that;
+
+````swift
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        HHTabBarView.shared.isHidden = false
+    }
+````
+
 <hr>
 
 ## ToDo[s]
