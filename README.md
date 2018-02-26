@@ -23,6 +23,16 @@ A lightweight customized tabbar view.
 
 <table>
 <tr>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/1.png" alt = "Only Icon"></td>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/2.png" alt = "Icon (top) with title (bottom)"></td>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/3.png" alt = "Only Title"></td>
+</tr>
+<tr>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/4.png" alt = "Icon (left) with title (right)"></td>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/5.png" alt = "Icon (right) with title (left)"></td>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/6.png" alt = "Icon (bottom) with title (top)"></td>
+</tr>
+<tr>
 <td colspan="3" align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/HHTabBarFlow.gif" alt = "Usage"></td>
 </tr>
 </table>
