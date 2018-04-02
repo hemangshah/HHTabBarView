@@ -65,7 +65,6 @@ public class HHTabBarView: UIView {
         let t = CGAffineTransform.init(scaleX: -1, y: -1)
         self.transform = t
         self.subviews.forEach { (subview) in
-            print(subview.transform)
             subview.transform = t
         }
     }
