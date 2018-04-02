@@ -55,7 +55,7 @@ public class HHTabBarView: UIView {
     ///Update Badge Value for Specific Tab.
     public func updateBadge(forTabIndex index: Int, withValue value: Int) {
         if self.areTabsCreated() {
-            let hhTabButton = tabBarTabs[index]
+            let hhTabButton = self.tabBarTabs[index]
             hhTabButton.badgeValue = value
         }
     }
@@ -80,7 +80,7 @@ public class HHTabBarView: UIView {
     }
     
     ///Completion Handler for Tab Changes
-    public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
+    public var onTabTapped:((_ tabIndex: Int) -> ())! = nil
     
     //MARK: Init
     private override init(frame: CGRect) {
@@ -123,20 +123,15 @@ public class HHTabBarView: UIView {
     
     //UI Updates
     public override func layoutSubviews() {
-        self.frame = getHHTabBarViewFrame()
+        self.frame = self.getHHTabBarViewFrame()
     }
     
     //Helper to Select a Particular Tab.
     public func selectTabAtIndex(withIndex tabIndex: Int) {
 
         // Tab Selection/Deselection
-        for hhTabButton in tabBarTabs {
-            
-            if hhTabButton.tabIndex == tabIndex {
-                hhTabButton.isSelected = true
-            } else {
-                hhTabButton.isSelected = false
-            }
+        for hhTabButton in self.tabBarTabs {
+            hhTabButton.isSelected = (hhTabButton.tabIndex == tabIndex) ? true : false
         }
         
         // Apply Tab Changes in UITabBarController
@@ -145,7 +140,7 @@ public class HHTabBarView: UIView {
         // Lock or Unlock the Tabs if requires.
         self.lockUnlockTabs()
         
-        let currentHHTabButton = tabBarTabs[tabIndex]
+        let currentHHTabButton = self.tabBarTabs[tabIndex]
         currentHHTabButton.isUserInteractionEnabled = false
     }
     
@@ -161,14 +156,14 @@ public class HHTabBarView: UIView {
     fileprivate func lockUnlockTabs() {
         
         //Unlock All Tabs Before Locking.
-        for hhTabButton in tabBarTabs {
+        for hhTabButton in self.tabBarTabs {
             hhTabButton.isUserInteractionEnabled = true
         }
         
         //Then Lock the provided Tab Indexes.
         if !self.lockTabIndexes.isEmpty {
             for index in self.lockTabIndexes {
-                let hhTabButton = tabBarTabs [index]
+                let hhTabButton = self.tabBarTabs[index]
                 hhTabButton.isUserInteractionEnabled = false
             }
         }
@@ -180,10 +175,10 @@ public class HHTabBarView: UIView {
         var xPos: CGFloat = 0.0
         let yPos: CGFloat = 0.0
         
-        let width = CGFloat(self.frame.size.width)/CGFloat(tabBarTabs.count)
+        let width = CGFloat(self.frame.size.width)/CGFloat(self.tabBarTabs.count)
         let height = self.frame.size.height
 
-        for hhTabButton in tabBarTabs {
+        for hhTabButton in self.tabBarTabs {
             hhTabButton.frame = CGRect.init(x: xPos, y: yPos, width: width, height: height)
             hhTabButton.addTarget(self, action: #selector(actionTabTapped(tab:)), for: .touchUpInside)
             hhTabButton.badgeValue = 0 //This will create HHTabLabel inside the HHTabButton
