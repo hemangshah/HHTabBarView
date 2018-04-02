@@ -62,4 +62,12 @@ class SecondViewController: UIViewController {
             apd.hhTabBarView.tabChangeAnimationType = .none
         }
     }
+    
+    @IBAction func actionReverseTabs(_ sender: UISwitch) {
+        if sender.isOn {
+            self.apd.hhTabBarView.rightToLeft()
+        } else {
+            self.apd.hhTabBarView.leftToRight()
+        }
+    }
 }

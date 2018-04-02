@@ -60,6 +60,25 @@ public class HHTabBarView: UIView {
         }
     }
     
+    ///Reverse the Tabs from RightToLeft [Usage English/Arabic UI]
+    public func rightToLeft() {
+        let t = CGAffineTransform.init(scaleX: -1, y: -1)
+        self.transform = t
+        self.subviews.forEach { (subview) in
+            print(subview.transform)
+            subview.transform = t
+        }
+    }
+    
+    ///Reverse the Tabs from LeftToRight [Usage English/Arabic UI]
+    public func leftToRight() {
+        let t = CGAffineTransform.init(scaleX: 1, y: 1)
+        self.transform = t
+        self.subviews.forEach { (subview) in
+            subview.transform = t
+        }
+    }
+    
     ///Completion Handler for Tab Changes
     public var onTabTapped:((_ tabIndex:Int) -> ())! = nil
     
