@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Latest release is available [here](https://github.com/hemangshah/HHTabBarView/releases/latest).
 
-## [1.2.0](https://github.com/hemangshah/HHTabBarView/releases/tag/1.1.2) - Feb 26, 2018
+## [1.3.0](https://github.com/hemangshah/HHTabBarView/releases/tag/1.3.0) - Apr 02, 2018
+- Left to Right and Right to Left UI management as per the language. Example: English <–> Arabic.
+- Code refactoring.
+
+## [1.2.0](https://github.com/hemangshah/HHTabBarView/releases/tag/1.2.0) - Feb 26, 2018
 - Huge code refactoring.
 - Swift 4.x support. Note: Revoked Swift 3.x support.
 - Customized position for title and image.
