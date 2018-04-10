@@ -46,6 +46,7 @@ A lightweight customized tabbar view.
 5. Lock/Unlock particular tabs.
 6. Easily show/hide UINavigationBar and HHTabBarView.
 7. Lightweight with zero dependancies.
+8. Change UI of HHTabBarView (LeftToRight or RightToLeft) as per the needs.
 
 ## Installation
 
@@ -152,12 +153,7 @@ A lightweight customized tabbar view.
 
 ## ToDo[s]
 
-- [x] Make HHTabBarView Singleton
-- [x] More Customization Options
-- [x] Lock Tabs
-- [x] Badge
-- [x] Animations
-- [x] CocoaPods Support
+- [ ] Update README with multiple example usage and screenshots.
 
 You can [watch](https://github.com/hemangshah/HHTabBarView/subscription) to <b>HHTabBarView</b> to see continuous updates. Stay tuned.
 
