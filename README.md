@@ -1,4 +1,5 @@
-# HHTabBarView 📌
+![HHTabBarView](https://github.com/Tobaloidee/HHTabBarView/blob/master/logo/logotype-a.png)
+
 A lightweight customized tabbar view.
 
 [![Build Status](https://travis-ci.org/hemangshah/HHTabBarView.svg?branch=master)](https://travis-ci.org/hemangshah/HHTabBarView)
