@@ -15,6 +15,11 @@ public enum HHTabBarTabChangeAnimationType {
     case flash, shake, pulsate, none
 }
 
+///Position Types for HHTabBarView.
+public enum HHTabBarViewPosition {
+    case top, bottom
+}
+
 ///Easily configured HHTabBarView class to replace the iOS default UITabBarController.
 public class HHTabBarView: UIView {
     
@@ -25,8 +30,14 @@ public class HHTabBarView: UIView {
     private(set) public var referenceUITabBarController =  UITabBarController()
     
     //MARK: Setters
-    ///Animation Type
+    ///Animation Type. Default: none.
     public var tabChangeAnimationType: HHTabBarTabChangeAnimationType = .none
+
+    ///TabBarView Position. Default: bottom. Also, don't forget to set 'tabBarViewTopPositionValue' if tabBarViewPosition = 'top'.
+    public var tabBarViewPosition: HHTabBarViewPosition = .bottom
+    
+    /// If tabBarViewPosition = top then you should set it according to your UI requirements.
+    public var tabBarViewTopPositionValue: CGFloat = 64.0
     
     ///Set HHTabButton for HHTabBarView.
     public var tabBarTabs = Array<HHTabButton>() {
@@ -110,11 +121,14 @@ public class HHTabBarView: UIView {
         let screentHeight = screenSize.height
         let screentWidth = screenSize.width
         var tabBarHeight = hhTabBarViewHeight
-        
-        //To support UI for iPhone X
-        if #available(iOS 11.0, *) {
-            let bottomPadding = self.referenceUITabBarController.tabBar.safeAreaInsets.bottom
-            tabBarHeight += bottomPadding
+
+        if self.tabBarViewPosition == .top {
+            return CGRect.init(x: 0.0, y: self.tabBarViewTopPositionValue, width: screentWidth, height: tabBarHeight)
+        } else {
+            if #available(iOS 11.0, *) {
+                let bottomPadding = self.referenceUITabBarController.tabBar.safeAreaInsets.bottom
+                tabBarHeight += bottomPadding
+            }
         }
         
         return CGRect.init(x: 0.0, y: (screentHeight - tabBarHeight), width: screentWidth, height: tabBarHeight)
