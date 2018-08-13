@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name             = 'HHTabBarView'
 s.module_name      = 'HHTabBarView'
-s.version          = '1.3.0'
+s.version          = '2.0.0'
 s.summary          = 'A lightweight customized tabbar view. 📌'
 s.description      = 'HHTabBarView is an easy to setup and use replacement of default tabbar.'
 s.homepage         = 'https://github.com/hemangshah/HHTabBarView'
