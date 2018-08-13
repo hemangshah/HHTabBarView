@@ -33,6 +33,10 @@ A lightweight customized tabbar view.
 <td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/6.png" alt = "Icon (bottom) with title (top)"></td>
 </tr>
 <tr>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/7.png" alt = "HHTabBarView top position"></td>
+<td align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/8.png" alt = "HHTabBarView top position (iPhoneX)"></td>
+</tr>
+<tr>
 <td colspan="3" align="center"><img src = "https://github.com/hemangshah/HHTabBarView/blob/master/Screenshots/HHTabBarFlow.gif" alt = "Usage"></td>
 </tr>
 </table>
@@ -47,6 +51,7 @@ A lightweight customized tabbar view.
 6. Easily show/hide UINavigationBar and HHTabBarView.
 7. Lightweight with zero dependancies.
 8. Change UI of HHTabBarView (LeftToRight or RightToLeft) as per the needs.
+9. Change HHTabBarView position as per UI requirements. Supports: Top and Bottom (Default).
 
 ## Installation
 
@@ -153,7 +158,7 @@ A lightweight customized tabbar view.
 
 ## ToDo[s]
 
-- [ ] Update README with multiple example usage and screenshots.
+- [x] Update README with multiple example usage and screenshots.
 
 You can [watch](https://github.com/hemangshah/HHTabBarView/subscription) to <b>HHTabBarView</b> to see continuous updates. Stay tuned.
 
