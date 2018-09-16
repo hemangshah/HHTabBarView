@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Latest release is available [here](https://github.com/hemangshah/HHTabBarView/releases/latest).
 
-## [2.0.0] – Aug 18, 2018
+## [2.1.0](https://github.com/hemangshah/HHTabBarView/releases/tag/2.1.0) – Sep 16, 2018
+– Fixed: https://github.com/hemangshah/HHTabBarView/issues/9
+– Minor code refactoring.
+
+## [2.0.0](https://github.com/hemangshah/HHTabBarView/releases/tag/2.0.0) – Aug 18, 2018
 – Updated code base to allow user to add HHTabBarView at top position as well.
 – Minor code refactoring.
 
