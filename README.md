@@ -51,7 +51,9 @@ A lightweight customized tabbar view.
 6. Easily show/hide UINavigationBar and HHTabBarView.
 7. Lightweight with zero dependancies.
 8. Change UI of HHTabBarView (LeftToRight or RightToLeft) as per the needs.
-9. Change HHTabBarView position as per UI requirements. Supports: Top and Bottom (Default).
+9. Change HHTabBarView position as per UI requirements. Supports: Top and Bottom (Default). 
+
+##### Note: I don't recommended displaying HHTabBarView at the top. It's always good at the bottom.
 
 ## Installation
 
