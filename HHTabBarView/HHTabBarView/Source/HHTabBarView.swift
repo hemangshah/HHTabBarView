@@ -113,6 +113,7 @@ public class HHTabBarView: UIView {
         self.referenceUITabBarController.view.addSubview(self)
         //This is important otherwise tabBar will be visible if tabChangeAnimationType = .flash
         self.referenceUITabBarController.tabBar.isHidden = true
+        self.referenceUITabBarController.tabBar.alpha = 0.0
     }
     
     //HHTabBarViewFrame Frame

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let referenceUITabBarController = HHTabBarView.shared.referenceUITabBarController
     
     //2
-    func setupReferenceUITabBarController() -> Void {
+    func setupReferenceUITabBarController() {
         
         //Creating a storyboard reference
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //3
-    func setupHHTabBarView() -> Void {
+    func setupHHTabBarView() {
         
         //Default & Selected Background Color
         let defaultTabColor = UIColor.black.withAlphaComponent(0.8)
@@ -108,10 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         t5.imageHorizontalAlignment = .center
         
         //Set HHTabBarView position.
-        self.hhTabBarView.tabBarViewPosition = .top
+        self.hhTabBarView.tabBarViewPosition = .bottom
         
         //Set this value according to your UI requirements.
-        self.hhTabBarView.tabBarViewTopPositionValue = 84.0
+        self.hhTabBarView.tabBarViewTopPositionValue = 64
 
         //Set Default Index for HHTabBarView.
         self.hhTabBarView.tabBarTabs = [t1, t2, t3, t4, t5]
@@ -153,11 +153,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //5
     //MARK: Show/Hide HHTabBarView
-    func hideTabBar() -> Void {
+    func hideTabBar() {
         self.hhTabBarView.isHidden = true
     }
     
-    func showTabBar() -> Void {
+    func showTabBar() {
         self.hhTabBarView.isHidden = false
     }
 
