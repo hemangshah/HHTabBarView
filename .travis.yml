@@ -5,4 +5,4 @@ branches:
   only:
     - master
 
-script: `cd HHTabBarView/` xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+script: cd HHTabBarView/ xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
