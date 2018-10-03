@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //4
-    //MARK: App Life Cycle
+    // MARK: App Life Cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //Setup HHTabBarView
@@ -125,16 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
-    }
-    
-    //5
-    //MARK: Show/Hide HHTabBarView
-    func hideTabBar() {
-        hhTabBarView.toggleShowOrHide()
-    }
-    
-    func showTabBar() {
-        hhTabBarView.toggleShowOrHide()
     }
 
     /////End ------ SETUP HHTabBarView ------

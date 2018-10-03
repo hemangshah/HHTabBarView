@@ -19,13 +19,7 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func actionShowHideTabBar(_ sender: UISwitch) {
-        
-        if !apd.hhTabBarView.isHidden {
-            apd.hideTabBar()
-        } else {
-            apd.showTabBar()
-        }
-        
+        apd.hhTabBarView.toggleShowOrHide()
     }
     
     @IBAction func actionShowHideNavigationBar(_ sender: UISwitch) {
