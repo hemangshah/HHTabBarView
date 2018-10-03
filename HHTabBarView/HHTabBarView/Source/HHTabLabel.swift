@@ -12,13 +12,13 @@ import UIKit
 public class HHTabLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
-        self.layer.cornerRadius = frame.size.width/2.0
-        self.layer.masksToBounds = true
-        self.textColor = .white
-        self.textAlignment = .center
-        self.font = UIFont.init(name: "Helvetica-Light", size: 10.0)
-        self.adjustsFontSizeToFitWidth = true
+        backgroundColor = .red
+        layer.cornerRadius = frame.size.width/2.0
+        layer.masksToBounds = true
+        textColor = .white
+        textAlignment = .center
+        font = UIFont.init(name: "Helvetica-Light", size: 10.0)
+        adjustsFontSizeToFitWidth = true
     }
     
     required public init?(coder aDecoder: NSCoder) {

@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let umbrellaNavigationController: UINavigationController = UINavigationController(rootViewController: umbrellaViewController)
         
         //Update referenced TabbarController with your viewcontrollers
-        self.referenceUITabBarController.setViewControllers([navigationController1, navigationController2, sofaNavigationController, targetNavigationController, umbrellaNavigationController], animated: false)
+        referenceUITabBarController.setViewControllers([navigationController1, navigationController2, sofaNavigationController, targetNavigationController, umbrellaNavigationController], animated: false)
     }
     
     //3
@@ -67,68 +67,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Create Custom Tabs
         //Note: As tabs are subclassed of UIButton so you can modify it as much as possible.
         
-        let t1 = HHTabButton(withTitle: "Location", tabImage: UIImage(named: "location-pin")!, index: 0)
-        t1.titleLabel?.font = tabFont
-        t1.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
-        t1.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
-        t1.imageToTitleSpacing = spacing
-        t1.imageVerticalAlignment = .top
-        t1.imageHorizontalAlignment = .center
+        let titles = ["Location", "Refresh", "Sofa", "Target", "Umbrella"]
+        let icons = [UIImage(named: "location-pin")!, UIImage(named: "refresh")!, UIImage(named: "sofa")!, UIImage(named: "target")!, UIImage(named: "umbrella")!]
+        var tabs = [HHTabButton]()
         
-        let t2 = HHTabButton(withTitle: "Refresh", tabImage: UIImage(named: "refresh")!, index: 1)
-        t2.titleLabel?.font = tabFont
-        t2.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
-        t2.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
-        t2.imageToTitleSpacing = spacing
-        t2.imageVerticalAlignment = .top
-        t2.imageHorizontalAlignment = .center
-        
-        let t3 = HHTabButton(withTitle: "Sofa", tabImage: UIImage(named: "sofa")!, index: 2)
-        t3.titleLabel?.font = tabFont
-        t3.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
-        t3.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
-        t3.imageToTitleSpacing = spacing
-        t3.imageVerticalAlignment = .top
-        t3.imageHorizontalAlignment = .center
-        
-        let t4 = HHTabButton(withTitle: "Target", tabImage: UIImage(named: "target")!, index: 3)
-        t4.titleLabel?.font = tabFont
-        t4.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
-        t4.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
-        t4.imageToTitleSpacing = spacing
-        t4.imageVerticalAlignment = .top
-        t4.imageHorizontalAlignment = .center
-        
-        let t5 = HHTabButton(withTitle: "Umbrella", tabImage: UIImage(named: "umbrella")!, index: 4)
-        t5.titleLabel?.font = tabFont
-        t5.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
-        t5.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
-        t5.imageToTitleSpacing = spacing
-        t5.imageVerticalAlignment = .top
-        t5.imageHorizontalAlignment = .center
+        for index in 0...4 {
+            let tab = HHTabButton(withTitle: titles[index], tabImage: icons[index], index: index)
+            tab.titleLabel?.font = tabFont
+            tab.setHHTabBackgroundColor(color: defaultTabColor, forState: .normal)
+            tab.setHHTabBackgroundColor(color: selectedTabColor, forState: .selected)
+            tab.imageToTitleSpacing = spacing
+            tab.imageVerticalAlignment = .top
+            tab.imageHorizontalAlignment = .center
+            tabs.append(tab)
+        }
         
         //Set HHTabBarView position.
-        self.hhTabBarView.tabBarViewPosition = .bottom
+        hhTabBarView.tabBarViewPosition = .bottom
         
         //Set this value according to your UI requirements.
-        self.hhTabBarView.tabBarViewTopPositionValue = 64
+        hhTabBarView.tabBarViewTopPositionValue = 64
 
         //Set Default Index for HHTabBarView.
-        self.hhTabBarView.tabBarTabs = [t1, t2, t3, t4, t5]
+        hhTabBarView.tabBarTabs = tabs
         
-        //You should modify badgeLabel after assigning tabs array.
+        // To modify badge label.
+        // Note: You should only modify badgeLabel after assigning tabs array.
+        // Example:
         //t1.badgeLabel?.backgroundColor = .white
         //t1.badgeLabel?.textColor = selectedTabColor
         //t1.badgeLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
         
         //Handle Tab Change Event
-        self.hhTabBarView.defaultIndex = 0
+        hhTabBarView.defaultIndex = 0
         
         //Show Animation on Switching Tabs
-        self.hhTabBarView.tabChangeAnimationType = .none
+        hhTabBarView.tabChangeAnimationType = .none
         
         //Handle Tab Changes
-        self.hhTabBarView.onTabTapped = { (tabIndex) in
+        hhTabBarView.onTabTapped = { (tabIndex) in
             print("Selected Tab Index:\(tabIndex)")
         }
     }
@@ -136,17 +113,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //4
     //MARK: App Life Cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         //Setup HHTabBarView
-        self.setupReferenceUITabBarController()
-        self.setupHHTabBarView()
+        setupReferenceUITabBarController()
+        setupHHTabBarView()
         
         //This is important.
         //Setup Application Window
-        self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = self.referenceUITabBarController
-        self.window?.makeKeyAndVisible()
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.rootViewController = referenceUITabBarController
+        window?.makeKeyAndVisible()
         
         return true
     }
@@ -154,11 +130,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //5
     //MARK: Show/Hide HHTabBarView
     func hideTabBar() {
-        self.hhTabBarView.isHidden = true
+        hhTabBarView.toggleShowOrHide()
     }
     
     func showTabBar() {
-        self.hhTabBarView.isHidden = false
+        hhTabBarView.toggleShowOrHide()
     }
 
     /////End ------ SETUP HHTabBarView ------
