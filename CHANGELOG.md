@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 Latest release is available [here](https://github.com/hemangshah/HHTabBarView/releases/latest).
 
+## [2.2.0](https://github.com/hemangshah/HHTabBarView/releases/tag/2.2.0) – Dec 15, 2018
+- Fixed: https://github.com/hemangshah/HHTabBarView/issues/13
+- Fixed: https://github.com/hemangshah/HHTabBarView/issues/12
+- Support for Swift 4.2
+
 ## [2.1.0](https://github.com/hemangshah/HHTabBarView/releases/tag/2.1.0) – Sep 16, 2018
 - Fixed: https://github.com/hemangshah/HHTabBarView/issues/9
 - Minor code refactoring.
