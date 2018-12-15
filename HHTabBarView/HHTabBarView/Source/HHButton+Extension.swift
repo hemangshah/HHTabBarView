@@ -27,7 +27,7 @@ public extension HHTabButton {
         flash.duration = 0.15
         flash.fromValue = 1
         flash.toValue = 0.1
-        flash.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         flash.autoreverses = true
         flash.repeatCount = 3
         layer.add(flash, forKey: nil)
@@ -48,7 +48,7 @@ public extension HHTabButton {
     }
     
     ///Set Background Color for various UIButton states.
-    public func setHHTabBackgroundColor(color: UIColor, forState: UIControlState) {
+    public func setHHTabBackgroundColor(color: UIColor, forState: UIControl.State) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
         UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
         UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
