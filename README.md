@@ -6,7 +6,6 @@ A lightweight customized tabbar view.
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/hemangshah/HHTabBarView/blob/master/LICENSE)
 [![Platform](https://img.shields.io/badge/Platforms-iOS-red.svg)](https://www.apple.com/in/ios/)
 [![Swift 4.x](https://img.shields.io/badge/Swift-4.x-blue.svg)](https://swift.org/)
-[![CocoaPods](https://img.shields.io/cocoapods/dt/HHTabBarView.svg)](https://cocoapods.org/pods/HHTabBarView)
 [![MadeWithLove](https://img.shields.io/badge/Made%20with%20%E2%9D%A4-India-green.svg)](https://madewithlove.org.in/)
 [![Awesome-Swift](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/matteocrippa/awesome-swift/)
 
