@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 Latest release is available [here](https://github.com/hemangshah/HHTabBarView/releases/latest).
 
+## [2.3.0](https://github.com/hemangshah/HHTabBarView/releases/tag/2.3.0) – Sep 24, 2019
+- Fixed: We can now go back by tapping on the same tab again in navigation hierarchy.
+- Support for Swift 5.0
+
 ## [2.2.0](https://github.com/hemangshah/HHTabBarView/releases/tag/2.2.0) – Dec 15, 2018
 - Fixed: https://github.com/hemangshah/HHTabBarView/issues/13
 - Fixed: https://github.com/hemangshah/HHTabBarView/issues/12
