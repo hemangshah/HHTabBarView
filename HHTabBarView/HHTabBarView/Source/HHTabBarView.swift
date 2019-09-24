@@ -38,6 +38,8 @@ public class HHTabBarView: UIView {
     
     ///For Internal Navigation
     private(set) public var referenceUITabBarController =  UITabBarController()
+    ///Current Tab Index: Internal Usage Only.
+    private(set) var currentTabIndex: Int = 0
     
     // MARK: Setters
     ///Animation Type. Default: none.
@@ -85,18 +87,18 @@ public class HHTabBarView: UIView {
     public func rightToLeft() {
         let t = CGAffineTransform.init(scaleX: -1, y: -1)
         self.transform = t
-        _ = self.subviews.map {$0.transform = t }
+        _ = self.subviews.map { $0.transform = t }
     }
     
     ///Reverse the Tabs from LeftToRight [Usage English/Arabic UI]
     public func leftToRight() {
         let t = CGAffineTransform.init(scaleX: 1, y: 1)
         self.transform = t
-        _ = self.subviews.map {$0.transform = t }
+        _ = self.subviews.map { $0.transform = t }
     }
     
     ///Completion Handler for Tab Changes
-    public var onTabTapped:((_ tabIndex: Int) -> Void)! = nil
+    public var onTabTapped:((_ tabIndex: Int, _ isSameTab: Bool, _ controller: Any?) -> Void)? = nil
     
     // MARK: Init
     private override init(frame: CGRect) {
@@ -128,29 +130,48 @@ public class HHTabBarView: UIView {
         frame = getHHTabBarViewFrame()
     }
     
-    //Helper to Select a Particular Tab.
+    ///Helper to Select a Particular Tab.
     public func selectTabAtIndex(withIndex tabIndex: Int) {
         // Tab Selection/Deselection
-        _ = tabBarTabs.map {$0.isSelected = ($0.tabIndex == tabIndex) ? true : false}
+        _ = tabBarTabs.map { $0.isSelected = ($0.tabIndex == tabIndex) ? true : false}
         // Apply Tab Changes in UITabBarController
         referenceUITabBarController.selectedIndex = tabIndex
         // Lock or Unlock the Tabs if requires.
         lockUnlockTabs()
-        // Disable interaction for the current tab.
-        let currentHHTabButton = tabBarTabs[tabIndex]
-        currentHHTabButton.isUserInteractionEnabled = false
+        
+        currentTabIndex = tabIndex
     }
     
-    ///A convenience method to show or hide HHTabBarView.
+    /// A convenience method to show or hide HHTabBarView.
     public func toggleShowOrHide() {
         self.isHidden = !isHidden
     }
     
-    //Overriding Default Properties
+    // Overriding Default Properties
+    /// To hide the HHTabBarView.
     override public var isHidden: Bool {
         willSet {
             self.referenceUITabBarController.tabBar.isHidden = !isHidden
         }
+    }
+    
+    /// Lock Current tab, if don't want to select the same tab again.
+    public func lockCurrentTab() {
+        for (index, tab) in tabBarTabs.enumerated() {
+            if index == currentTabIndex {
+                if let controllers = self.referenceUITabBarController.viewControllers, let navcon = controllers[currentTabIndex] as? UINavigationController {
+                    if navcon.viewControllers.count == 1 {
+                        tab.isUserInteractionEnabled = false
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    /// Unlock all of the tabs at once.
+    public func unlockAllTabs(ignoreAlreadyLocked: Bool = false) {
+        unlockAllTabs(); if ignoreAlreadyLocked { lockSpecifiedTab() }
     }
     
     // MARK: Helpers
@@ -159,7 +180,7 @@ public class HHTabBarView: UIView {
         let screentHeight = UIScreen.height
         var tabBarHeight = hhTabBarViewHeight
         
-        if self.tabBarViewPosition == .top {
+        if tabBarViewPosition == .top {
             return CGRect.init(x: 0.0, y: tabBarViewTopPositionValue, width: screentWidth, height: tabBarHeight)
         } else {
             if #available(iOS 11.0, *) {
@@ -174,11 +195,18 @@ public class HHTabBarView: UIView {
         return tabBarTabs.isEmpty ? false : true
     }
     
+    private func unlockAllTabs() {
+        _ = tabBarTabs.map { $0.isUserInteractionEnabled = true }
+    }
+    
     private func lockUnlockTabs() {
         //Unlock All Tabs Before Locking.
-        _ = tabBarTabs.map {$0.isUserInteractionEnabled = true}
-
+        unlockAllTabs()
         //Then Lock the provided Tab Indexes.
+        lockSpecifiedTab()
+    }
+    
+    private func lockSpecifiedTab() {
         if !lockTabIndexes.isEmpty {
             for index in lockTabIndexes {
                 let hhTabButton = tabBarTabs[index]
@@ -199,24 +227,30 @@ public class HHTabBarView: UIView {
             addSubview(hhTabButton)
             xPos += width
         }
-        self.defaultIndex = 0
+        defaultIndex = 0
     }
     
     //Actions
     @objc private func actionTabTapped(tab: HHTabButton) {
-        if onTabTapped != nil {
+        let tappedTabIndex = tab.tabIndex
+        var isSameTab: Bool = false
+        let controller = referenceUITabBarController.viewControllers?[tappedTabIndex]
+        if currentTabIndex == tappedTabIndex {
+            isSameTab = true
+        } else {
+            isSameTab = false
             animateTabBarButton(tabBarButton: tab)
             selectTabAtIndex(withIndex: tab.tabIndex)
-            onTabTapped(tab.tabIndex)
         }
+        onTabTapped?(tappedTabIndex, isSameTab, controller)
     }
     
     //Perform Animation on Tab Changes.
     private func animateTabBarButton(tabBarButton: HHTabButton) {
         switch self.tabChangeAnimationType {
-            case .flash: tabBarButton.flash(); break
-            case .shake: tabBarButton.shake(); break
-            case .pulsate: tabBarButton.pulsate(); break
+            case .flash: tabBarButton.flash()
+            case .shake: tabBarButton.shake()
+            case .pulsate: tabBarButton.pulsate()
             default: break
         }
     }

@@ -102,10 +102,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         hhTabBarView.defaultIndex = 0
         
         //Show Animation on Switching Tabs
-        hhTabBarView.tabChangeAnimationType = .none
+        hhTabBarView.tabChangeAnimationType = .none                
         
         //Handle Tab Changes
-        hhTabBarView.onTabTapped = { (tabIndex) in
+        hhTabBarView.onTabTapped = { (tabIndex, isSameTab, controller) in
+            if isSameTab {
+                if let navcon = controller as? UINavigationController {
+                    navcon.popToRootViewController(animated: true)
+                } else if let vc = controller as? UIViewController {
+                    vc.navigationController?.popToRootViewController(animated: true)
+                }
+            }
             print("Selected Tab Index:\(tabIndex)")
         }
     }
