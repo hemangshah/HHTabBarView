@@ -2,7 +2,6 @@
 
 A lightweight customized tabbar view.
 
-[![Build Status](https://travis-ci.org/hemangshah/HHTabBarView.svg?branch=master)](https://travis-ci.org/hemangshah/HHTabBarView)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/hemangshah/HHTabBarView/blob/master/LICENSE)
 [![Platform](https://img.shields.io/badge/Platforms-iOS-red.svg)](https://www.apple.com/in/ios/)
 [![Swift 4.x](https://img.shields.io/badge/Swift-4.x-blue.svg)](https://swift.org/)
